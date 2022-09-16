@@ -1,17 +1,17 @@
+using abc.Models.Entity;
 using Microsoft.EntityFrameworkCore;
-using NZWalks.API.Data;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var services = builder.Services;
 // Add services to the container.
-
-builder.Services.AddControllers();
+services.AddDbContext<UserDbContex>(opt =>
+{
+    opt.UseMySql("server=localhost;port=3306;uid=root;pwd=root;database=usertable;", ServerVersion.AutoDetect("server=localhost;port=3306;uid=root;pwd=root;database=usertable;"));
+});
+services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-string mySqlConnectionString = "server=localhost;port=3306;uid=root;pwd=root;database=nwzwalks;";
-builder.Services.AddDbContext<NZWalksDbContext>(options => options.UseMySql(mySqlConnectionString, ServerVersion.AutoDetect(mySqlConnectionString)));
+services.AddEndpointsApiExplorer();
+services.AddSwaggerGen();
 
 var app = builder.Build();
 

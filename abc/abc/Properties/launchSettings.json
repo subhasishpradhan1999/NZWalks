@@ -4,20 +4,19 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:36526",
-      "sslPort": 44354
+      "applicationUrl": "http://localhost:13500",
+      "sslPort": 44319
     }
   },
   "profiles": {
-    "NZWalks.API": {
+    "abc": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7165;http://localhost:5165",
+      "applicationUrl": "https://localhost:7058;http://localhost:5058",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-       
       }
     },
     "IIS Express": {
